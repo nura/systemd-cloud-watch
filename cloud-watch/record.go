@@ -61,7 +61,6 @@ type Record struct {
 	ContainerIdFull string   `json:"containerIdFull,omitempty" journald:"CONTAINER_ID_FULL"`
 	ContainerName   string   `json:"containerName,omitempty" journald:"CONTAINER_NAME"`
 	ContainerTag    string   `json:"containerTag,omitempty" journald:"CONTAINER_TAG"`
-	ServiceName     string   `json:"serviceName,omitempty" journald:"SERVICE_NAME"`
 }
 
 func NewRecord(journal Journal, logger lg.Logger, config *Config) (*Record, error) {
