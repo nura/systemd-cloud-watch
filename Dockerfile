@@ -8,8 +8,9 @@ ENV GOPATH /go
 ENV GOBIN /go/bin
 ENV PATH $GOPATH/bin:/usr/local/go/bin:$PATH
 
-COPY . /go/src/systemd-cloud-watch
-WORKDIR /go/src/systemd-cloud-watch
+COPY cloud-watch /go/src/cloud-watch
+COPY main.go /go/src/systemd-cloud-watch/main.go
+WORKDIR /go/src
 
 RUN apt-get update && \
     apt-get -y install \
@@ -25,7 +26,8 @@ RUN apt-get update && \
 	echo "$GOLANG_DOWNLOAD_SHA256 golang.tar.gz" | sha256sum -c - && \
 	tar -C /usr/local -xzf golang.tar.gz && \
 	rm golang.tar.gz && \
-    go get . && \
+    go get ./cloud-watch && \
+    go get ./systemd-cloud-watch && \
     apt-get -y purge \
         curl \
         gcc \

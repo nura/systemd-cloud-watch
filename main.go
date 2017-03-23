@@ -2,8 +2,8 @@ package main
 
 import (
 	"flag"
-	jcw "github.com/marcogroppo/systemd-cloud-watch/cloud-watch"
 	"os"
+	jcw "cloud-watch"
 	lg "github.com/advantageous/go-logback/logging"
 )
 
