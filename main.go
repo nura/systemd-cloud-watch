@@ -3,7 +3,7 @@ package main
 import (
 	"flag"
 	"os"
-	jcw "cloud-watch"
+	jcw "./cloud-watch"
 	lg "github.com/advantageous/go-logback/logging"
 )
 
