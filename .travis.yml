@@ -2,4 +2,6 @@ language: go
 go:
   - 1.8
 install: true
-script: ./build.sh
+script:
+  - go get ./cloud-watch
+  - go build -o $GOPATH:/bin/systemd-cloud-watch main.go
