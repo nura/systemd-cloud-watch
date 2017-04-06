@@ -1,6 +1,11 @@
 language: go
 go:
   - 1.8
+addons:
+  apt:
+    packages:
+      - libsystemd0
+      - libsystemd-dev
 install: true
 script:
   - go get ./cloud-watch
