@@ -203,7 +203,10 @@ func (r *Runner) positionCursor() {
 			r.logger.Info("Success: Rewind", r.config.Rewind, count)
 		}
 	} else {
-		err := r.journal.SeekHead()
+		// start 14 days ago (CloudWatch limit)
+		now := time.Now()
+		err := r.journal.SeekRealtimeUsec(uint64((now.UnixNano() / 1e3) - 1209600000000))
+		
 		if err != nil {
 			r.logger.Error("Unable to seek to head of systemd journal", err)
 			panic("Unable to seek to end of systemd journal")
