@@ -137,3 +137,7 @@ func (journal *SdJournal) SeekCursor(cursor string) error {
 func (journal *SdJournal) Wait(timeout time.Duration) int {
 	return journal.journal.Wait(timeout)
 }
+
+func (journal *SdJournal) SeekRealtimeUsec(time uint64) error {
+	return journal.journal.SeekRealtimeUsec(time)
+}
