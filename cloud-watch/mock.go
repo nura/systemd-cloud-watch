@@ -186,3 +186,7 @@ func (journal *TestJournal) SeekCursor(cursor string) error {
 func (journal *TestJournal) Wait(timeout time.Duration) int {
 	return 5
 }
+
+func (journal *TestJournal) SeekRealtimeUsec(time uint64) error {
+	return nil
+}
