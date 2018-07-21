@@ -58,4 +58,6 @@ type Journal interface {
 	// sdjournal.IndefiniteWait is passed as the timeout parameter, Wait will
 	// wait indefinitely for a journal change.
 	Wait(timeout time.Duration) int
+	
+	SeekRealtimeUsec(time uint64) error
 }
